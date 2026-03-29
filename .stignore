@@ -1,0 +1,28 @@
+// Git 的資料夾，每台裝置獨立運作，同步會導致版本歷史損壞
+.git
+
+// 作業系統自動產生的垃圾檔，同步無用
+(?i)thumbs.db
+(?i)desktop.ini
+(?i).DS_Store
+
+// Obsidian 的快取，每台裝置自己產生，刪掉也會自動重建
+.obsidian/cache/
+
+// Obsidian 的介面狀態，螢幕大小不同，同步只會產生不必要的衝突
+.obsidian/workspace*
+
+// Obsidian 的垃圾桶，我選擇不忽略，這樣跨裝置不小心刪錯也能救回
+// .obsidian/.trash/
+
+// obsidian-git 插件的認證腳本，路徑跟裝置綁定，同步過去會出錯
+.obsidian/plugins/obsidian-git/obsidian_askpass.sh
+
+// Smart Environment 插件的快取與 event log，每台裝置獨立，同步只會產生大量衝突
+.smart-env
+
+// Syncthing 的版本備份資料夾
+.stversions
+
+// 衝突檔案，我選擇不忽略，寧願手動清理也不要漏掉衝突
+// *.sync-conflict-*
