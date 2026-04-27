@@ -15,8 +15,10 @@
 // Obsidian 的垃圾桶，我選擇不忽略，這樣跨裝置不小心刪錯也能救回
 // .obsidian/.trash/
 
-// obsidian-git 插件的認證腳本，路徑跟裝置綁定，同步過去會出錯
+// obsidian-git 插件的認證腳本與 IPC 暫存檔，跟裝置綁定，同步會把 Linux 的密碼請求彈到 Windows
 .obsidian/plugins/obsidian-git/obsidian_askpass.sh
+.obsidian/plugins/obsidian-git/.git_credentials_input
+.obsidian/plugins/obsidian-git/.git_credentials_input.response
 
 // Smart Environment 插件的快取與 event log，每台裝置獨立，同步只會產生大量衝突
 .smart-env
