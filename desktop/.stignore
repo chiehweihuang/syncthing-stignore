@@ -12,16 +12,22 @@
 // Obsidian 的介面狀態，螢幕大小不同，同步只會產生不必要的衝突
 .obsidian/workspace*
 
+// Obsidian 的外觀設定，各機獨立，之前持續產生 appearance.sync-conflict 衝突檔
+.obsidian/appearance.json
+
 // Obsidian 的垃圾桶，我選擇不忽略，這樣跨裝置不小心刪錯也能救回
 // .obsidian/.trash/
 
 // obsidian-git 插件的認證腳本與 IPC 暫存檔，跟裝置綁定，同步會把 Linux 的密碼請求彈到 Windows
+// 用 * 一次涵蓋 .git_credentials_input 與 .response 及未來任何變體
 .obsidian/plugins/obsidian-git/obsidian_askpass.sh
-.obsidian/plugins/obsidian-git/.git_credentials_input
-.obsidian/plugins/obsidian-git/.git_credentials_input.response
+.obsidian/plugins/obsidian-git/.git_credentials_input*
 
 // Smart Environment 插件的快取與 event log，每台裝置獨立，同步只會產生大量衝突
 .smart-env
+
+// recent-files 插件的「最近開啟」清單，每台裝置自己的瀏覽狀態
+.obsidian/plugins/recent-files-obsidian/data.json
 
 // Syncthing 的版本備份資料夾
 .stversions

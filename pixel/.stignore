@@ -1,0 +1,58 @@
+// Git 的資料夾，每台裝置獨立運作，同步會導致版本歷史損壞
+.git
+
+// 作業系統自動產生的垃圾檔，同步無用
+(?i)thumbs.db
+(?i)desktop.ini
+(?i).DS_Store
+
+// Obsidian 的快取，每台裝置自己產生，刪掉也會自動重建
+.obsidian/cache/
+
+// Obsidian 的介面狀態，螢幕大小不同，同步只會產生不必要的衝突
+.obsidian/workspace*
+
+// Obsidian 的外觀設定，各機獨立，之前持續產生 appearance.sync-conflict 衝突檔
+.obsidian/appearance.json
+
+// Obsidian 的垃圾桶，我選擇不忽略，這樣跨裝置不小心刪錯也能救回
+// .obsidian/.trash/
+
+// obsidian-git 插件的認證腳本與 IPC 暫存檔，跟裝置綁定，同步會把 Linux 的密碼請求彈到 Windows
+// 用 * 一次涵蓋 .git_credentials_input 與 .response 及未來任何變體
+.obsidian/plugins/obsidian-git/obsidian_askpass.sh
+.obsidian/plugins/obsidian-git/.git_credentials_input*
+
+// Smart Environment 插件的快取與 event log，每台裝置獨立，同步只會產生大量衝突
+.smart-env
+
+// recent-files 插件的「最近開啟」清單，每台裝置自己的瀏覽狀態
+.obsidian/plugins/recent-files-obsidian/data.json
+
+// Syncthing 的版本備份資料夾
+.stversions
+
+// 衝突檔案，我選擇不忽略，寧願手動清理也不要漏掉衝突
+// *.sync-conflict-*
+
+
+// ========================================================
+// 以下為手機(Pixel)專屬 — desktop/.stignore 沒有這段
+// 手機 Obsidian 啟動脆弱，靠這段把不必要的插件擋在手機外
+// ========================================================
+
+// 插件啟用清單改由手機自己管，不被桌機的完整 17 個清單覆蓋
+// (擋掉後，需在手機 Obsidian 設定裡手動把不要的插件停用一次)
+.obsidian/community-plugins.json
+
+// 插件白名單：只有以下 6 個插件會同步到手機，其餘一律不下載
+// 增減手機插件 → 只動這幾行 + 手機 Obsidian 設定裡的開關
+// 順序重要：! 白名單必須排在 .obsidian/plugins/* catch-all 之前
+//          (Syncthing 第一條符合的規則勝出)
+!.obsidian/plugins/dataview
+!.obsidian/plugins/obsidian-kanban
+!.obsidian/plugins/templater-obsidian
+!.obsidian/plugins/obsidian-icon-folder
+!.obsidian/plugins/homepage
+!.obsidian/plugins/recent-files-obsidian
+.obsidian/plugins/*
