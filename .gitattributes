@@ -1,0 +1,5 @@
+# Normalize line endings to LF for all text files.
+# Reason: this repo's .stignore files deploy to Linux (Yatagarasu, Kototama)
+# and Android (Pixel) — keeping a single consistent line ending avoids
+# subtle parsing quirks and stops Windows checkouts from showing diff noise.
+* text=auto eol=lf
